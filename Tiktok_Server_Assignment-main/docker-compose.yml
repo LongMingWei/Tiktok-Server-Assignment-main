@@ -29,14 +29,23 @@ services:
       - "2379:2379"
   db:
     image: mysql:latest
+    container_name: tiktok_server_assignment-main-db-1
     ports:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=a
       - MYSQL_DATABASE=allMessages
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=a
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+      - MYSQL_ROOT_HOST=%
+    command: --init-file /data/application/init.sql
+    volumes:
+      - ./rpc-server/my.cnf:/etc/mysql/my.cnf:ro
+      - ./data:/var/lib/mysql
+      - ./rpc-server/init.sql:/data/application/init.sql:ro
     healthcheck:
       test: ["CMD","mysqladmin","ping","-h","localhost"]
       timeout: 20s
       retries: 10
+
+
+

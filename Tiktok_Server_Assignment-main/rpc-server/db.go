@@ -32,17 +32,17 @@ func (c *SQLClient) InitClient(ctx context.Context, username, password, address,
 
 	c.db = db
 
-	_, err = c.db.ExecContext(ctx, `
-		CREATE TABLE messages (
-			id INT AUTO_INCREMENT PRIMARY KEY,
-			room_id VARCHAR(255) NOT NULL,
-			sender VARCHAR(255) NOT NULL,
-			message TEXT NOT NULL,
-			timestamp INT NOT NULL
-		)`)
-	if err != nil {
-		return err
-	}
+	//_, err = c.db.ExecContext(ctx, `
+	//	CREATE TABLE messages (
+	//		id INT AUTO_INCREMENT PRIMARY KEY,
+	//		room_id VARCHAR(255) NOT NULL,
+	//		sender VARCHAR(255) NOT NULL,
+	//		message TEXT NOT NULL,
+	//		timestamp INT NOT NULL
+	//	)`)
+	//if err != nil {
+	//	return err
+	//}
 
 	return nil
 }

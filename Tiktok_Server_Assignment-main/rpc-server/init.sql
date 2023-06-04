@@ -1,0 +1,15 @@
+CREATE USER 'user'@'%' IDENTIFIED BY 'a';
+GRANT ALL PRIVILEGES ON *.* TO 'user'@'%';
+
+FLUSH PRIVILEGES;
+
+CREATE DATABASE IF NOT EXISTS allMessages;
+USE allMessages;
+
+CREATE TABLE IF NOT EXISTS messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    room_id VARCHAR(255) NOT NULL,
+    sender VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL,
+    timestamp INT NOT NULL
+);

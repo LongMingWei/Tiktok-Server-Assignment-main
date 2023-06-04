@@ -18,7 +18,7 @@ var (
 
 func main() {
 	ctx := context.Background()
-	time.Sleep(10 * time.Second)
+	time.Sleep(50 * time.Second)
 	err := dbClient.InitClient(ctx, "user", "a", "mysql:3306", "allMessages")
 	if err != nil {
 		errMsg := fmt.Sprintf("failed to init SQL client, err: %v", err)
