@@ -11,14 +11,11 @@ reads messages from an SQL database if the HTTP requests is PULL and writes mess
 database if the HTTP request is SEND. The messages read/written will then be sent back to the http-server
 and then to the client as feedback. 
 
-main.go in http-server initializes itself and uses the API in idl_http.proto to tell the rpc-server whether the request is
+- main.go in http-server initializes itself and uses the API in idl_http.proto to tell the rpc-server whether the request is
 sendMessage() (api/send) or pullMessage() (api/pull) and transmits details of the request as well such
 as message content and chat/roomID. 
-
-main.go in rpc-server initializes itself and the SQL database and client with the help of docker-compose.yml
-
-db.go in rpc-server is the database client and is in charge of saving and getting messages from the 
+- main.go in rpc-server initializes itself and the SQL database and client with the help of docker-compose.yml
+- db.go in rpc-server is the database client and is in charge of saving and getting messages from the 
 SQL database based on the request sent by the rpc-server.
-
-handler.go in rpc-server is in charge of handling the request by breaking down its details such as 
+- handler.go in rpc-server is in charge of handling the request by breaking down its details such as 
 message and sender and telling the database client to save or get messages from its database.
