@@ -4,7 +4,8 @@
 
 Done by: Long Ming Wei 
 
-About: This code is an implementation of the backend portion of an Instant Messaging system, handling 
+# About
+This code is an implementation of the backend portion of an Instant Messaging system, handling 
 requests from users to send to and receive messages from other users. The http-server is responsible 
 for receiving HTTP requests from clients and makes an RPC call to the rpc-server. The rpc-server then 
 reads messages from an SQL database if the HTTP requests is PULL and writes messages to update the 
