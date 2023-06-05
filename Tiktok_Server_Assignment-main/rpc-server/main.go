@@ -9,7 +9,6 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	etcd "github.com/kitex-contrib/registry-etcd"
 	"log"
-	"time"
 )
 
 var (
@@ -18,8 +17,8 @@ var (
 
 func main() {
 	ctx := context.Background()
-	time.Sleep(50 * time.Second)
-	err := dbClient.InitClient(ctx, "user", "a", "mysql:3306", "allMessages")
+	//time.Sleep(50 * time.Second)
+	err := dbClient.InitClient(ctx, "user", "a", "tiktok_server_assignment-main-db-1", "allMessages")
 	if err != nil {
 		errMsg := fmt.Sprintf("failed to init SQL client, err: %v", err)
 		log.Fatal(errMsg)
